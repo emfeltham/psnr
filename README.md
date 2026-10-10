@@ -9,7 +9,7 @@ The R side only passes data to Julia through [JuliaCall](https://cran.r-project.
 Requires Julia 1.10 or later on the `PATH`, and the R package `JuliaCall`.
 
 ```r
-remotes::install_github("human-nature-lab/psnr")  # adjust to wherever this repo is hosted
+remotes::install_github("emfeltham/psnr")
 psnr::psn_setup()
 ```
 
