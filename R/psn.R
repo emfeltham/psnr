@@ -47,7 +47,7 @@ psn_setup <- function(
     local <- dir.exists(pkg)
     if (local) pkg <- normalizePath(pkg)
     dir.create(env, recursive = TRUE, showWarnings = FALSE)
-    status <- system2(julia, c(
+    status <- .julia_run(julia, c(
       "--startup-file=no", paste0("--project=", shQuote(env)),
       shQuote(system.file("julia/psn_env.jl", package = "psnr")),
       shQuote(env), if (local) "path" else "url", shQuote(pkg)))
@@ -55,11 +55,22 @@ psn_setup <- function(
   }
 
   Sys.setenv(JULIA_PROJECT = env)
-  bindir <- system2(julia, c("--startup-file=no", "-e", shQuote("print(Sys.BINDIR)")), stdout = TRUE)
+  bindir <- .julia_run(julia, c("--startup-file=no", "-e", shQuote("print(Sys.BINDIR)")), stdout = TRUE)
   JuliaCall::julia_setup(JULIA_HOME = bindir)
   JuliaCall::julia_source(system.file("julia/psn_shim.jl", package = "psnr"))
   .psn$ready <- TRUE
   invisible()
+}
+
+# R puts the system library directories on LD_LIBRARY_PATH, and Julia then loads
+# the system copies of libraries it bundles (e.g., zstd) and crashes on a version
+# mismatch. Run Julia without it.
+.julia_run <- function(julia, args, ...) {
+  if (.Platform$OS.type == "unix") {
+    args <- c("-u", "LD_LIBRARY_PATH", julia, args)
+    julia <- "env"
+  }
+  system2(julia, args, ...)
 }
 
 .psn_args <- function(edges, nodes, consents) {
