@@ -1,0 +1,16 @@
+Package: psnr
+Title: R Interface to SamplingPerceivedNetworks.jl
+Version: 0.0.1
+Authors@R: person("Eric Martin", "Feltham", email = "eric.feltham@yale.edu",
+    role = c("aut", "cre"))
+Description: Thin JuliaCall wrapper for the distance-based sampling of
+    perceived networks (Feltham, Forastiere & Christakis 2025).
+    Requires Julia and the Julia package SamplingPerceivedNetworks.jl.
+License: MIT + file LICENSE
+Imports: JuliaCall
+Suggests: testthat (>= 3.0.0), knitr, rmarkdown, igraph
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0
