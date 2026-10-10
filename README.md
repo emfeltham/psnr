@@ -1,5 +1,10 @@
 # psnr
 
+[![pkgdown](https://github.com/emfeltham/psnr/actions/workflows/pkgdown.yaml/badge.svg?branch=main)](https://github.com/emfeltham/psnr/actions/workflows/pkgdown.yaml)
+[![Docs](https://img.shields.io/badge/docs-site-blue.svg)](https://emfeltham.github.io/psnr/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE.md)
+[![Julia package](https://img.shields.io/badge/julia-SamplingPerceivedNetworks.jl-9558B2.svg)](https://github.com/human-nature-lab/SamplingPerceivedNetworks.jl)
+
 A thin R interface to [SamplingPerceivedNetworks.jl](https://github.com/human-nature-lab/SamplingPerceivedNetworks.jl), the distance-based sampling procedure for cognitive social structures data (Feltham, Forastiere & Christakis 2025, *Nature Human Behaviour*, <https://doi.org/10.1038/s41562-025-02221-6>).
 
 The R side only passes data to Julia through [JuliaCall](https://cran.r-project.org/package=JuliaCall). The logic lives in the Julia package; `inst/julia/psn_shim.jl` translates R data frames and vectors into its arguments.

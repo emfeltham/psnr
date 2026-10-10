@@ -1,0 +1,19 @@
+url: https://emfeltham.github.io/psnr/
+template:
+  bootstrap: 5
+
+reference:
+  - title: Setup
+    contents: psn_setup
+  - title: Sampling
+    contents:
+      - psn_sample
+      - psn_inclusion_probs
+
+articles:
+  - title: Guides
+    contents: psnr
+
+links:
+  - text: SamplingPerceivedNetworks.jl
+    href: https://human-nature-lab.github.io/SamplingPerceivedNetworks.jl

@@ -6,6 +6,8 @@ Authors@R: person("Eric Martin", "Feltham", email = "eric.feltham@yale.edu",
 Description: Thin JuliaCall wrapper for the distance-based sampling of
     perceived networks (Feltham, Forastiere & Christakis 2025).
     Requires Julia and the Julia package SamplingPerceivedNetworks.jl.
+URL: https://emfeltham.github.io/psnr/, https://github.com/emfeltham/psnr
+BugReports: https://github.com/emfeltham/psnr/issues
 License: MIT + file LICENSE
 Imports: JuliaCall
 Suggests: testthat (>= 3.0.0), knitr, rmarkdown, igraph
